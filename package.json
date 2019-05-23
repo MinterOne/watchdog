@@ -1,0 +1,17 @@
+{
+  "name": "watchdog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node -r esm index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "esm": "^3.2.22",
+    "minter-js-sdk": "^0.16.0"
+  }
+}
