@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://minter.one/img/watchdog.png">
+</p>
+
 ### Установка и запуск
 ```
 git clone https://github.com/ingria/minter-watchdog.git
