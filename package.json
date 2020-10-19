@@ -5,16 +5,19 @@
   "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx eslint --ext .js ./src",
-    "start": "node -r esm -r dotenv/config ./src/index.js"
+    "lint": "npx eslint --ext .js ./src ./testbed",
+    "start": "node -r esm -r dotenv/config ./src/index.js",
+    "testbed": "node -r esm -r dotenv/config ./testbed/index.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
+    "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
     "esm": "^3.2.22",
-    "minter-js-sdk": "^0.35.4"
+    "minter-js-sdk": "^0.35.4",
+    "minterjs-wallet": "^6.0.0"
   },
   "devDependencies": {
     "eslint": "^7.11.0"
