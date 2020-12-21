@@ -52,3 +52,15 @@ chmod 600 .env
 ```
 
 Не забываем про слеш в конце префикса.
+
+#### Пример запуска через pm2
+1. Устанавливаем [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/), если ещё не установлен.
+2. Запускаем:
+```
+pm2 start npm --no-automation --name watchdog -- run start --prefix /PATH/TO/WATCHDOG/
+```
+
+3. Сохраняем:
+```
+pm2 startup && pm2 save
+```
