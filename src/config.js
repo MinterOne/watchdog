@@ -34,6 +34,7 @@ export const WATCHDOG_MONIKER = process.env.WATCHDOG_MONIKER || 'watchdog';
 export const WATCHDOG_WINDOW_WIDTH = parseInt(process.env.WATCHDOG_WINDOW_WIDTH || 24);
 export const WATCHDOG_MAX_MISSED = parseInt(process.env.WATCHDOG_MAX_MISSED || 3);
 export const WATCHDOG_VALIDATOR_PUBKEY = process.env.WATCHDOG_VALIDATOR_PUBKEY;
+export const WATCHDOG_DONT_NOTIFY_MISSED = castBool(process.env.WATCHDOG_DONT_NOTIFY_MISSED);
 
 export const MINTER_TX_GAS_COIN_ID = parseInt(process.env.MINTER_TX_GAS_COIN_ID || MINTER_CHAIN_PRIMARY_COIN);
 export const MINTER_TX_PRIVATE_KEY = typeof process.env.MINTER_TX_PRIVATE_KEY === 'string'

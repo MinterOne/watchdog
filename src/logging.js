@@ -1,5 +1,10 @@
 import Telegram from './adapters/TelegramBotApi';
-import { WATCHDOG_MONIKER, WATCHDOG_MAX_MISSED, MINTER_EXPLORER_URL } from './config';
+import {
+    WATCHDOG_MONIKER,
+    WATCHDOG_MAX_MISSED,
+    WATCHDOG_DONT_NOTIFY_MISSED,
+    MINTER_EXPLORER_URL
+} from './config';
 
 const shutdownMessage = '\ud83d\uded1 *Валидатор выключен*\n\n{{link}}\n\n*{{moniker}}*';
 const errorMessage = '\u203c\ufe0f Пропущен блок *{{missedBlock}}*\n*{{moniker}}*';
@@ -83,6 +88,11 @@ export default {
 
         console.log(filterMarkdown(text));
 
+        // don't send telegram notifications if disabled
+        if (WATCHDOG_DONT_NOTIFY_MISSED) {
+            return
+        }
+
         // If there are missed blocks, update every block,
         // else update every 10 blocks to avoid flood errors:
         const shouldUpdateMessage = missedBlockCount || lastKnownBlock.height % 10 == 0;
@@ -115,6 +125,11 @@ export default {
         };
 
         console.error(filterMarkdown(params.text));
+
+        // don't send telegram notifications if disabled
+        if (WATCHDOG_DONT_NOTIFY_MISSED) {
+            return
+        }
 
         return Telegram.sendMessage(params)
             .then(({ message_id }) => resetLastMessageId(message_id))
