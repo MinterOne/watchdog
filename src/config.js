@@ -31,6 +31,7 @@ export const NODE_API_MEMPOOL_RETRY_COUNT = parseInt(process.env.NODE_API_MEMPOO
 export const NODE_API_NONCE_RETRY_COUNT = parseInt(process.env.NODE_API_NONCE_RETRY_COUNT || 3);
 
 export const WATCHDOG_MONIKER = process.env.WATCHDOG_MONIKER || 'watchdog';
+export const WATCHDOG_DISABLE_MISSED_BLOCK_NOTIFICATIONS = castBool(process.env.WATCHDOG_DISABLE_MISSED_BLOCK_NOTIFICATIONS || false);
 export const WATCHDOG_WINDOW_WIDTH = parseInt(process.env.WATCHDOG_WINDOW_WIDTH || 24);
 export const WATCHDOG_MAX_MISSED = parseInt(process.env.WATCHDOG_MAX_MISSED || 3);
 export const WATCHDOG_VALIDATOR_PUBKEY = process.env.WATCHDOG_VALIDATOR_PUBKEY;
