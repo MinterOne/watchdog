@@ -20,18 +20,38 @@ const MinterSDK = new Minter({
 
 const MinterAPI = MinterSDK.apiInstance;
 
+/**
+ * @param  {Number} height
+ * @return {Promise<Object>}
+ */
 export function getBlock(height) {
     return MinterAPI.get(`/block/${height}`).then((response) => {
         return response.data;
     });
 }
 
+/**
+ * @return {Promise<Object>}
+ */
 export function getStatus() {
     return MinterAPI.get('/status').then((response) => {
         return response.data;
     });
 }
 
+/**
+ * @param  {String} publicKey
+ * @return {Promise<Object>}
+ */
+export function getCandidate(publicKey) {
+    return MinterAPI.get(`/candidate/${publicKey}?not_show_stakes=true`).then((response) => {
+        return response.data;
+    });
+}
+
+/**
+ * @return {Promise<String>} Transaction hash
+ */
 export function switchValidatorOff() {
     const txParams = {
         type: TX_TYPE.SET_CANDIDATE_OFF,
@@ -55,5 +75,6 @@ export function switchValidatorOff() {
 export default {
     getStatus,
     getBlock,
+    getCandidate,
     switchValidatorOff,
 };
