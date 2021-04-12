@@ -38,7 +38,7 @@ export const WATCHDOG_VALIDATOR_PUBKEY = process.env.WATCHDOG_VALIDATOR_PUBKEY;
 
 export const MINTER_TX_GAS_COIN_ID = parseInt(process.env.MINTER_TX_GAS_COIN_ID || MINTER_CHAIN_PRIMARY_COIN);
 export const MINTER_TX_PRIVATE_KEY = typeof process.env.MINTER_TX_PRIVATE_KEY === 'string'
-    ? Buffer.from(process.env.MINTER_TX_PRIVATE_KEY, 'hex')
+    ? Buffer.from(process.env.MINTER_TX_PRIVATE_KEY.replace('0x', ''), 'hex')
     : process.env.MINTER_TX_PRIVATE_KEY;
 
 export const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
